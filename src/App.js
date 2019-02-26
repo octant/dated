@@ -1,28 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import Calendar from "./Calendar";
+
+const App = () => {
+  const selected = "2018-06-04";
+  const [date, setDate] = useState(selected);
+
+  return (
+    <Calendar
+      name="dob"
+      value={date}
+      onChange={({ name, value }) => {
+        setDate(value);
+      }}
+      input="input"
+    />
+  );
+};
 
 export default App;
